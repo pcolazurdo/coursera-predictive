@@ -1,36 +1,33 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-
   <head>
-    <meta charset='utf-8'>
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="Coursera-predictive : Coursera Practical Machine Learning Course Project Submission">
+    <title>Coursera-predictive by pcolazurdo</title>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-
-    <title>Coursera-predictive</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
-
   <body>
+    <div class="wrapper">
+      <header>
+        <h1>Coursera-predictive</h1>
+        <p>Coursera Practical Machine Learning Course Project Submission</p>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/pcolazurdo/coursera-predictive">View on GitHub</a>
+        <p class="view"><a href="https://github.com/pcolazurdo/coursera-predictive">View the Project on GitHub <small>pcolazurdo/coursera-predictive</small></a></p>
 
-          <h1 id="project_title">Coursera-predictive</h1>
-          <h2 id="project_tagline">Coursera Practical Machine Learning Course Project Submission</h2>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/pcolazurdo/coursera-predictive/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/pcolazurdo/coursera-predictive/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+        <ul>
+          <li><a href="https://github.com/pcolazurdo/coursera-predictive/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/pcolazurdo/coursera-predictive/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/pcolazurdo/coursera-predictive">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
         <hr>
 
 <p>title: "Practical Machine Learning Course Project"
@@ -46,6 +43,22 @@ library(<span class="pl-smi">rpart</span>)
 library(<span class="pl-smi">randomForest</span>)
 
 <span class="pl-c">#Remove DIV/0! from the source file</span>
+<span class="pl-c"># Simple Explanation</span>
+<span class="pl-smi">First</span> <span class="pl-smi">of</span> <span class="pl-smi">all</span> <span class="pl-smi">I</span><span class="pl-s"><span class="pl-pds">'</span>ve massaged the data a little bit just to convert the "DIV/0" text inside the training/testing files to a common value. I did this using a standard text editor (replaced div/0 with 0)</span>
+<span class="pl-s"></span>
+<span class="pl-s">Then I<span class="pl-pds">'</span></span><span class="pl-smi">ve</span> <span class="pl-smi">removed</span> <span class="pl-smi">all</span> <span class="pl-smi">non</span> <span class="pl-smi">numeric</span> <span class="pl-smi">fields</span>.
+
+<span class="pl-smi">Then</span> <span class="pl-smi">I</span><span class="pl-s"><span class="pl-pds">'</span>ve started playing a little bit with the data. I<span class="pl-pds">'</span></span><span class="pl-smi">ve</span> <span class="pl-smi">found</span> <span class="pl-smi">that</span> <span class="pl-smi">most</span> <span class="pl-smi">of</span> <span class="pl-smi">the</span> <span class="pl-smi">algorithms</span> <span class="pl-smi">were</span> <span class="pl-smi">failing</span> <span class="pl-smi">because</span> <span class="pl-smi">the</span> <span class="pl-s"><span class="pl-pds">"</span>classe<span class="pl-pds">"</span></span> <span class="pl-smi">column</span> <span class="pl-smi">wasn</span><span class="pl-s"><span class="pl-pds">'</span>t recognized as factor so I<span class="pl-pds">'</span></span><span class="pl-smi">ve</span> <span class="pl-smi">had</span> <span class="pl-smi">to</span> <span class="pl-smi">convert</span> <span class="pl-smi">the</span> <span class="pl-smi">data</span> <span class="pl-smi">to</span> <span class="pl-smi">factor</span> <span class="pl-smi">using</span> <span class="pl-smi">as.factor</span>
+
+<span class="pl-smi">Then</span> <span class="pl-smi">I</span><span class="pl-s"><span class="pl-pds">'</span>ve built some training/testing sets to try the different algorithms and checked using a table the results selecting the ones with less errors.</span>
+<span class="pl-s"></span>
+<span class="pl-s">For my first iterations I<span class="pl-pds">'</span></span><span class="pl-smi">ve</span> <span class="pl-smi">choose</span> <span class="pl-smi">the</span> <span class="pl-smi">columns</span> <span class="pl-smi">manually</span> <span class="pl-smi">selecting</span> <span class="pl-smi">the</span> <span class="pl-smi">first</span> <span class="pl-k">in</span> <span class="pl-smi">what</span> <span class="pl-smi">RPART</span> <span class="pl-smi">tree</span> <span class="pl-smi">showed</span> <span class="pl-smi">as</span> <span class="pl-smi">the</span> <span class="pl-smi">most</span> <span class="pl-smi">important</span> <span class="pl-smi">variables</span> <span class="pl-smi">but</span> <span class="pl-smi">at</span> <span class="pl-smi">the</span> <span class="pl-smi">end</span> <span class="pl-smi">I</span><span class="pl-s"><span class="pl-pds">'</span>ve choose to run a Random Forest with PCA (which resulted in a 20/20 success rate on the exercise data)</span>
+<span class="pl-s"></span>
+<span class="pl-s">I really couldn<span class="pl-pds">'</span></span><span class="pl-smi">t</span> <span class="pl-smi">decide</span> <span class="pl-smi">which</span> <span class="pl-smi">graph</span> <span class="pl-smi">will</span> <span class="pl-smi">show</span> <span class="pl-smi">a</span> <span class="pl-smi">better</span> <span class="pl-smi">outlook</span> <span class="pl-smi">so</span> <span class="pl-smi">I</span><span class="pl-s"><span class="pl-pds">'</span>ve decided to leave them all off (with that many vars I<span class="pl-pds">'</span></span><span class="pl-smi">ve</span> <span class="pl-smi">mostly</span> <span class="pl-smi">was</span> <span class="pl-smi">guided</span> <span class="pl-smi">but</span> <span class="pl-smi">the</span> <span class="pl-smi">analytic</span> <span class="pl-smi">results</span> <span class="pl-smi">of</span> <span class="pl-smi">the</span> <span class="pl-smi">different</span> <span class="pl-smi">algorithms</span>)
+
+
+
+<span class="pl-c"># Code with comments</span>
 <span class="pl-smi">xx</span> <span class="pl-k">&lt;-</span> read.table(<span class="pl-s"><span class="pl-pds">"</span>/Users/IBM_ADMIN/Dropbox/Personal/Courses/2015/Predictive/Course Project/pml-training.csv<span class="pl-pds">"</span></span>, <span class="pl-v">header</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>, <span class="pl-v">sep</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>,<span class="pl-pds">"</span></span>, <span class="pl-v">quote</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span><span class="pl-pds">"</span></span>, <span class="pl-v">na.strings</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>NA<span class="pl-pds">"</span></span>, <span class="pl-v">stringsAsFactors</span> <span class="pl-k">=</span> <span class="pl-c1">FALSE</span>)
 <span class="pl-smi">yy</span> <span class="pl-k">&lt;-</span> read.table(<span class="pl-s"><span class="pl-pds">"</span>/Users/IBM_ADMIN/Dropbox/Personal/Courses/2015/Predictive/Course Project/pml-testing.csv<span class="pl-pds">"</span></span>, <span class="pl-v">header</span><span class="pl-k">=</span><span class="pl-c1">TRUE</span>, <span class="pl-v">sep</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>,<span class="pl-pds">"</span></span>, <span class="pl-v">quote</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span><span class="pl-cce">\"</span><span class="pl-pds">"</span></span>, <span class="pl-v">na.strings</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>NA<span class="pl-pds">"</span></span>, <span class="pl-v">stringsAsFactors</span> <span class="pl-k">=</span> <span class="pl-c1">FALSE</span>)
 
@@ -126,17 +139,12 @@ pml_write_files(<span class="pl-smi">test</span><span class="pl-k">$</span><span
 <pre lang="r,"><code>
 </code></pre>
       </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Coursera-predictive maintained by <a href="https://github.com/pcolazurdo">pcolazurdo</a></p>
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/pcolazurdo">pcolazurdo</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-
+    <script src="javascripts/scale.fix.js"></script>
     
-
   </body>
 </html>
